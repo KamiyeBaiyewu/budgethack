@@ -8,6 +8,7 @@ export enum ExpenseCategory {
     TRANSPORTATION='transportation',
     MISCELLANEOUS = 'miscellaneous',
 }
+
 export enum IncomeCategory {
     SALARY = 'salary',
     INVESTMENT = 'investment',

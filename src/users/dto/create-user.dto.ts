@@ -15,7 +15,7 @@ export class CreateUserDto {
         description: 'Last Name',
     })
     @IsString()
-    lasttName: string;
+    lastName: string;
 
     @ApiProperty({
         type: String,

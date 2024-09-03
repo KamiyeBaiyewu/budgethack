@@ -6,6 +6,7 @@ import { User } from './database/entities/user.entity';
 import { dataSourceOptions } from './data-source';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
+import { BudgetModule } from './budget/budget.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ TypeOrmModule.forFeature([
     User,
 ]),
 TypeOrmModule.forRoot(dataSourceOptions),
-UsersModule,],
+UsersModule,
+BudgetModule,],
   controllers: [AppController],
   providers: [AppService],
 })

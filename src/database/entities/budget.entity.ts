@@ -10,17 +10,30 @@ export class Budget{
     @Column({name:'name'})
     name:string;
     
-    @Column({name:'goal_amount'})
+    @Column({name:'goal_amount',default:0})
     goalAmount:number;
+   
+    @Column({name:'current_amount',default:0})
+    currentAmount:number;
 
-    @Column({name:'completion_rate'})
+    @Column({name:'completion_rate', default:0})
     completionRate:number;
     
-    @Column({name:'income_source'})
-    incomeSource:IncomeCategory.SALARY;
+    @Column({
+        name: 'income_source',
+        type: 'enum',
+        enum: IncomeCategory,
+        default: IncomeCategory.SALARY,
+    })
+    incomeSource: IncomeCategory;
 
-    @Column({name:'expense_category'})
-    expenseCategory:ExpenseCategory.BILLS;
+    @Column({
+        name: 'expense_category',
+        type: 'enum',
+        enum: ExpenseCategory,
+        default: ExpenseCategory.BILLS,
+    })
+    expenseCategory: ExpenseCategory;
 
     @Column({ name: 'user_id' })
     userId: number;

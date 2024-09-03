@@ -27,7 +27,7 @@ export class UsersService {
       throw new InternalServerErrorException("User exists already")
     }
 
-    let userCreate = this.userRepository.create(createUserDto)
+    const userCreate = this.userRepository.create(createUserDto)
     await this.userRepository.save(userCreate)
 
     return userCreate;
@@ -180,7 +180,7 @@ export class UsersService {
     if (!user) {
       throw new InternalServerErrorException("User does not exist")
     }
-    await this.userRepository.delete(user)
+    await this.userRepository.delete(user.id)
     return 'User Deleted Successfully';
   }
 }

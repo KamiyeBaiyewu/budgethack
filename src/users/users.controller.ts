@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Res, InternalServerErrorException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Res, InternalServerErrorException, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -22,7 +22,7 @@ export class UsersController {
   }
 
   @Get('findall')
-  async findAll(@Body() userFilterDto: UserFilterDto, @Res() res: Response,) {
+  async findAll(@Query() userFilterDto: UserFilterDto, @Res() res: Response,) {
     try {
       const data = await this.usersService.findAll(userFilterDto, res);
       return ResponseHelper.successResponse(
